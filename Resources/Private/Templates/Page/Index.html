@@ -1,0 +1,163 @@
+<html xmlns:f="http://typo3.org/ns/TYPO3/CMS/Fluid/ViewHelpers" data-namespace-typo3-fluid="true">
+<f:layout name="Default" />
+
+This template is responsible for creating a table of domain objects.
+
+If you modify this template, do not forget to change the overwrite settings
+in /Configuration/ExtensionBuilder/settings.yaml:
+  Resources:
+    Private:
+      Templates:
+        Page:
+          Index.html: keep
+
+Otherwise your changes will be overwritten the next time you save the extension in the extension builder
+
+<f:section name="content">
+<link rel="stylesheet" href="/studienprojekt/typo3/sysext/backend/Resources/Public/Css/backend.css?1665474386" media="all" />
+
+<!-- site header -->
+<div class="module-docheader t3js-module-docheader">
+  <div class="module-docheader-bar module-docheader-bar-navigation t3js-module-docheader-bar t3js-module-docheader-bar-navigation row">
+    <div class="module-docheader-bar-column-left col-12 text-end">
+      <!-- empty span to imitate typo3 style spacing -->
+      <span class="typo3-docheader-pagePath"></span>
+    </div>
+  </div>
+  <div class="module-docheader-bar module-docheader-bar-buttons t3js-module-docheader-bar t3js-module-docheader-bar-buttons">
+    <div class="module-docheader-bar-column-left">
+      <div class="btn-toolbar" role="toolbar" >
+        <!--   place header buttons here -->
+        <!-- Close Button -->
+        <a href="#" class="btn btn-default btn-sm t3js-editform-close" title="Close">
+          <span class="t3js-icon icon icon-size-small icon-state-default icon-actions-close" data-identifier="actions-close">
+	        <span class="icon-markup">
+              <svg class="icon-color"><use xlink:href="/studienprojekt/typo3/sysext/core/Resources/Public/Icons/T3Icons/sprites/actions.svg#actions-close"></use></svg>
+	        </span>
+          </span> Close
+        </a>
+
+        <!-- Save Button -->
+        <button name="_savedok" class="btn btn-default btn-sm " value="1" title="Save" form="EditDocumentController">
+          <span class="t3js-icon icon icon-size-small icon-state-default icon-actions-document-save" data-identifier="actions-document-save">
+	        <span class="icon-markup">
+              <svg class="icon-color"><use xlink:href="/studienprojekt/typo3/sysext/core/Resources/Public/Icons/T3Icons/sprites/actions.svg#actions-save"></use></svg>
+	        </span>
+          </span> Save
+        </button>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- site body -->
+<div class="module-body t3js-module-body">
+  <form action="">
+    <h1>Edit Page</h1>  <!-- Title TBD -->
+    <div class="typo3-TCEforms">
+      <div role="tabpanel">
+        <ul class="nav nav-tabs t3js-tabs" role="tablist">
+          <!-- Button 1 -->
+          <li role="presentation" class="t3js-tabmenu-item nav-item">
+            <a href="#DTM-91f3c9b7dd48a39876b0d0128789150a-1" class="nav-link  active" title="" aria-controls="DTM-91f3c9b7dd48a39876b0d0128789150a-1" role="tab" data-bs-toggle="tab" aria-selected="true">
+              Farbpalette
+            </a>
+          </li>
+
+          <!-- Button 2 -->
+          <li role="presentation" class="t3js-tabmenu-item nav-item">
+            <a href="#DTM-91f3c9b7dd48a39876b0d0128789150a-2" class="nav-link " title="" aria-controls="DTM-91f3c9b7dd48a39876b0d0128789150a-2" role="tab" data-bs-toggle="tab" aria-selected="false" tabindex="-1">
+              Textoptionen
+            </a>
+          </li>
+        </ul>
+        <div class="tab-content">
+          <div role="tabpanel" class="tab-pane active">
+            <fieldset class="form-section">
+              <h4 class="form-section-headline">Page Layout</h4>
+              <div class="row">
+                <div class="form-group t3js-formengine-validation-marker t3js-formengine-palette-field col col-sm-6">
+                  <label class="t3js-formengine-label">Backend Layout</label> <!-- asd -->
+                  <div class="formengine-field-item t3js-formengine-field-item">
+                    <div class="form-control-wrap">
+                      <div class="form-wizards-wrap">
+                        <div class="form-wizards-element">
+                          <div class="input-group">
+
+
+                            <span class="input-group-addon input-group-icon">
+                              <img loading="lazy" src="/studienprojekt/typo3conf/ext/typo3_template_baukasten/Resources/Public/Icons/BackendLayouts/homepage1.png" alt="Homepage1" title="Homepage1">
+                            </span>
+
+
+                            <select id="tceforms-select-63790353c02c9641230248" name="data[pages][251][backend_layout]" data-formengine-validation-rules="[{&quot;type&quot;:&quot;select&quot;,&quot;minItems&quot;:0,&quot;maxItems&quot;:1}]" class="form-select form-control-adapt">
+                              <option value="pagets__homepage1" data-icon="<img loading=&quot;lazy&quot;  src=&quot;/studienprojekt/typo3conf/ext/typo3_template_baukasten/Resources/Public/Icons/BackendLayouts/homepage1.png&quot; alt=&quot;Homepage1&quot; title=&quot;Homepage1&quot; />" selected="selected">Homepage1</option><option value="pagets__homepage2" data-icon="<img loading=&quot;lazy&quot;  src=&quot;/studienprojekt/typo3conf/ext/typo3_template_baukasten/Resources/Public/Icons/BackendLayouts/homepage2.png&quot; alt=&quot;Homepage2&quot; title=&quot;Homepage2&quot; />">Homepage2</option>
+                            </select>
+
+
+
+                          </div>
+                        </div>
+                        <div class="form-wizards-items-bottom">
+                          <div class="t3js-forms-select-single-icons icon-list">
+                            <div class="row">
+                              <img loading="lazy" src="/studienprojekt/typo3conf/ext/typo3_template_baukasten/Resources/Public/Icons/BackendLayouts/main_1Spaltig.png" alt="Eine Spalte" title="Eine Spalte">
+                            </div>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+                <div class="form-group t3js-formengine-validation-marker t3js-formengine-palette-field col col-sm-6">
+                  <label class="t3js-formengine-label">subpage w/e</label> <!--  asdasd -->
+                  <div class="formengine-field-item t3js-formengine-field-item">
+                    <div class="form-control-wrap">
+                      <div class="form-wizards-wrap">
+                        <div class="form-wizards-element">
+                          <div class="input-group">
+
+
+
+
+                            <span class="input-group-addon input-group-icon">
+                              <img loading="lazy" src="/studienprojekt/typo3conf/ext/typo3_template_baukasten/Resources/Public/Icons/BackendLayouts/main_1Spaltig.png" alt="Eine Spalte" title="Eine Spalte">
+                            </span>
+
+
+
+                            <select id="tceforms-select-63790353c07c7687714246" name="data[pages][251][backend_layout_next_level]" data-formengine-validation-rules="[{&quot;type&quot;:&quot;select&quot;,&quot;minItems&quot;:0,&quot;maxItems&quot;:1}]" class="form-select form-control-adapt">
+                              <option value="pagets__1spaltig" data-icon="<img loading=&quot;lazy&quot;  src=&quot;/studienprojekt/typo3conf/ext/typo3_template_baukasten/Resources/Public/Icons/BackendLayouts/main_1Spaltig.png&quot; alt=&quot;Eine Spalte&quot; title=&quot;Eine Spalte&quot; />" selected="selected">Eine Spalte</option><option value="pagets__2Spalten-30-70" data-icon="<img loading=&quot;lazy&quot;  src=&quot;/studienprojekt/typo3conf/ext/typo3_template_baukasten/Resources/Public/Icons/BackendLayouts/main_30-70.png&quot; alt=&quot;Zwei Spalten - 30/70&quot; title=&quot;Zwei Spalten - 30/70&quot; />">Zwei Spalten - 30/70</option><option value="pagets__2Spalten-50-50" data-icon="<img loading=&quot;lazy&quot;  src=&quot;/studienprojekt/typo3conf/ext/typo3_template_baukasten/Resources/Public/Icons/BackendLayouts/main_50-50.png&quot; alt=&quot;Zwei Spalten - 50/50&quot; title=&quot;Zwei Spalten - 50/50&quot; />">Zwei Spalten - 50/50</option><option value="pagets__2Spalten-70-30" data-icon="<img loading=&quot;lazy&quot;  src=&quot;/studienprojekt/typo3conf/ext/typo3_template_baukasten/Resources/Public/Icons/BackendLayouts/main_70-30.png&quot; alt=&quot;Zwei Spalten - 70/30&quot; title=&quot;Zwei Spalten - 70/30&quot; />">Zwei Spalten - 70/30</option>
+                            </select>
+
+
+
+
+
+
+
+
+                          </div>
+                        </div>
+                        <div class="form-wizards-items-bottom">
+                          <div class="t3js-forms-select-single-icons icon-list">
+                            <div class="row">
+                              <img loading="lazy" src="/studienprojekt/typo3conf/ext/typo3_template_baukasten/Resources/Public/Icons/BackendLayouts/main_1Spaltig.png" alt="Eine Spalte" title="Eine Spalte">
+                            </div>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </fieldset>
+          </div>
+        </div>
+      </div>
+    </div>
+  </form>
+</div>
+
+</f:section>
+</html>

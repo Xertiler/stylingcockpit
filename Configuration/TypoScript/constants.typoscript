@@ -1,0 +1,29 @@
+plugin.tx_stylingcockpit_stylingcockpitfrontend {
+    view {
+        # cat=plugin.tx_stylingcockpit_stylingcockpitfrontend/file; type=string; label=Path to template root (FE)
+        templateRootPath = EXT:stylingcockpit/Resources/Private/Templates/
+        # cat=plugin.tx_stylingcockpit_stylingcockpitfrontend/file; type=string; label=Path to template partials (FE)
+        partialRootPath = EXT:stylingcockpit/Resources/Private/Partials/
+        # cat=plugin.tx_stylingcockpit_stylingcockpitfrontend/file; type=string; label=Path to template layouts (FE)
+        layoutRootPath = EXT:stylingcockpit/Resources/Private/Layouts/
+    }
+    persistence {
+        # cat=plugin.tx_stylingcockpit_stylingcockpitfrontend//a; type=string; label=Default storage PID
+        storagePid =
+    }
+}
+
+module.tx_stylingcockpit_stylingcockpitbackend {
+    view {
+        # cat=module.tx_stylingcockpit_stylingcockpitbackend/file; type=string; label=Path to template root (BE)
+        templateRootPath = EXT:stylingcockpit/Resources/Private/Backend/Templates/
+        # cat=module.tx_stylingcockpit_stylingcockpitbackend/file; type=string; label=Path to template partials (BE)
+        partialRootPath = EXT:stylingcockpit/Resources/Private/Backend/Partials/
+        # cat=module.tx_stylingcockpit_stylingcockpitbackend/file; type=string; label=Path to template layouts (BE)
+        layoutRootPath = EXT:stylingcockpit/Resources/Private/Backend/Layouts/
+    }
+    persistence {
+        # cat=module.tx_stylingcockpit_stylingcockpitbackend//a; type=string; label=Default storage PID
+        storagePid =
+    }
+}

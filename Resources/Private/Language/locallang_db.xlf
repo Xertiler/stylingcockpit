@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<xliff version="1.0">
+	<file source-language="en" datatype="plaintext" original="EXT:stylingcockpit/Resources/Private/Language/locallang_db.xlf" date="2022-11-19T13:23:38Z" product-name="stylingcockpit">
+		<header/>
+		<body>
+			<trans-unit id="tx_stylingcockpit_domain_model_page" resname="tx_stylingcockpit_domain_model_page">
+				<source>Page</source>
+			</trans-unit>
+			<trans-unit id="tx_stylingcockpit_stylingcockpitfrontend.name" resname="tx_stylingcockpit_stylingcockpitfrontend.name">
+				<source>StylingCockpitFrontend</source>
+			</trans-unit>
+			<trans-unit id="tx_stylingcockpit_stylingcockpitfrontend.description" resname="tx_stylingcockpit_stylingcockpitfrontend.description">
+				<source></source>
+			</trans-unit>
+		</body>
+	</file>
+</xliff>
