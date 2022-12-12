@@ -13,7 +13,7 @@ defined('TYPO3') || die();
         [
             'access' => 'user,group',
             'icon'   => 'EXT:stylingcockpit/Resources/Public/Icons/user_mod_stylingcockpitbackend.svg',
-            'labels' => 'LLL:EXT:stylingcockpit/Resources/Private/Language/locallang_stylingcockpitbackend.xlf',
+            'labels' => 'LLL:EXT:stylingcockpit/Resources/Private/Language/locallang_stylingcockpitbackend.xlf:backendName',
         ]
     );
 
