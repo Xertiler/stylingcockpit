@@ -8,7 +8,7 @@ defined('TYPO3') || die();
         'stylingcockpitbackend',
         '',
         [
-            \Gruppe1\Stylingcockpit\Controller\PageController::class => 'index, list, show',
+            \Gruppe1\Stylingcockpit\Controller\PageController::class => 'index, test, anotherTest',
         ],
         [
             'access' => 'user,group',

@@ -6,11 +6,11 @@ defined('TYPO3') || die();
         'Stylingcockpit',
         'Stylingcockpitfrontend',
         [
-            \Gruppe1\Stylingcockpit\Controller\PageController::class => 'index'
+            \Gruppe1\Stylingcockpit\Controller\PageController::class => 'index, test, anotherTest'
         ],
         // non-cacheable actions
         [
-            \Gruppe1\Stylingcockpit\Controller\PageController::class => ''
+            \Gruppe1\Stylingcockpit\Controller\PageController::class => 'index, test, anotherTest'
         ]
     );
 
