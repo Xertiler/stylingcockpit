@@ -5,6 +5,9 @@ declare(strict_types=1);
 namespace Gruppe1\Stylingcockpit\Controller;
 
 
+use Psr\Http\Message\ResponseInterface;
+use Psr\Http\Message\ServerRequestInterface;
+
 /**
  * This file is part of the "Styling Cockpit" Extension for TYPO3 CMS.
  *
@@ -57,20 +60,15 @@ class PageController extends \TYPO3\CMS\Extbase\Mvc\Controller\ActionController
         return $this->htmlResponse();
     }
 
-    public function testAction(){
-        //$PageTSconfig = \TYPO3\CMS\Backend\Utility\BackendUtility::getPagesTSconfig($this->pObj->id);
-        //$websiteID = $PageTSconfig['TSFE.']['constants.']['websiteConfig.']['id'];
-        echo 'test ausgabe';
-    }
+    public function doSomethingAction(ServerRequestInterface $request): ResponseInterface
+    {
+        $input = $request->getQueryParams()['input'] ?? null;
+        if ($input === null) {
+            throw new \InvalidArgumentException('Please provide a number', 1580585107);
+        }
 
-    public function anotherTestAction(){
-        echo "test2 ausgabe";
-        //http_redirect('http://www.google.com');
-    }
-
-
-    public function ajaxTest(){
-        echo "hello world";
+        $result = $input ** 2;
+        return new Response(json_encode(['result' => $result]), 200, ['Content-Type' => 'application/json; charset=utf-8']);
     }
 
 

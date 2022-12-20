@@ -5,12 +5,13 @@ defined('TYPO3') || die();
     \TYPO3\CMS\Extbase\Utility\ExtensionUtility::configurePlugin(
         'Stylingcockpit',
         'Stylingcockpitfrontend',
+
         [
-            \Gruppe1\Stylingcockpit\Controller\PageController::class => 'index, test, anotherTest'
+            \Gruppe1\Stylingcockpit\Controller\PageController::class => 'index, doSomething'
         ],
         // non-cacheable actions
         [
-            \Gruppe1\Stylingcockpit\Controller\PageController::class => 'index, test, anotherTest'
+            \Gruppe1\Stylingcockpit\Controller\PageController::class => 'index, doSomething'
         ]
     );
 
