@@ -70,40 +70,56 @@ class PageController extends \TYPO3\CMS\Extbase\Mvc\Controller\ActionController
         // ******************************************************
 
         $layouts = BackendUtility::getPagesTSconfig(1)["mod."]["web_layout."]["BackendLayouts."];
-        
+
 
         foreach($layouts as $key => $value) {
-            
-
-            // echo $key."adasd"."<br>";
-            echo explode(".", $key)[0]."<br>";
+            // echo ($value["config."]["backend_layout."]["rowCount."]);
+            // echo explode(".", $key)[0]."<br>";
 
             $testLayout = "";
+            $heightCounter = count($value["config."]["backend_layout."]["rows."]) -2;
 
             if (!str_contains($key, "homepage")) {
-                $testLayout .= "<div style='height: 100px;width:100%; border: 1px solid black'>header</div>";
+                $testLayout .= "<div style='height: 20%;width:100%; border: 1px solid black'>header</div>";
+                $heightCounter += 2;
             }
 
             foreach ($value["config."]["backend_layout."]["rows."] as $layout) {
                 $mar = explode("-", $key);
                 $zahl = 1;
+                
+                
 
                 foreach ($layout["columns."] as $sub) {
                     $a = (count($layout["columns."]) !== 1) ? 'display: inline-block;' : '';
                     $b = (count($mar) == 1) ? 1 : ((int)$mar[$zahl++]) / 100;
                     $c = (str_contains($key, "homepage")) ? 1 / count($layout["columns."]) : $b;
-                    $testLayout .= "<div style='height: 100px;width:". 100 * $c ."%; border: 1px solid black;".$a."'>".end(explode(".", $sub['name']))."</div>";
+
+
+                    if (end(explode(".", $sub['name'])) == "header") {
+                        $testLayout .= "<div style='height: 20%;width:100%; border: 1px solid black'>header</div>";
+                    } else if (end(explode(".", $sub['name'])) == "footer") {
+                        $testLayout .= "<div style='height: 20%;width:100%; border: 1px solid black'>footer</div>";
+                    } else {
+                        $testLayout .= "<div style='height:". 60 / $heightCounter."%;width:". 100 * $c ."%; border: 1px solid black;".$a."'>".end(explode(".", $sub['name']))."</div>";
+                    }
+
                 }
 
             }
 
             if (!str_contains($key, "homepage")) {
-                $testLayout .= "<div style='height: 100px; width:100%; border: 1px solid black'>footer</div>";
+                $testLayout .= "<div style='height: 20%; width:100%; border: 1px solid black'>footer</div>";
             }
             $this->view->assign(explode(".", $key)[0], $testLayout);
 
 
         }
+        echo "<pre>";
+        print_r($gridArray);
+        echo "</pre>";
+
+        print_r($homepageArray);
 
         // ******************************************************
 
