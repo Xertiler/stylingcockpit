@@ -47,36 +47,20 @@ class PageController extends \TYPO3\CMS\Extbase\Mvc\Controller\ActionController
         $PageTSconfig = \TYPO3\CMS\Backend\Utility\BackendUtility::getPagesTSconfig($this->pObj->id);
         $websiteID = $PageTSconfig['TSFE.']['constants.']['websiteConfig.'];
 
-        foreach ($PageTSconfig['TSFE'] as $dogshit){
-            echo $dogshit;
-        }
-
-
         // $this->view->assign('pageTsConfig', BackendUtility::getPagesTSconfig(1)['mod.']['web_layout.']);
-        //$this->view->assign('rootLine', $rootlinePages);
-
-        //? Do we need this?
-        // $tests = $this->testRepository->findAll();
-        $this->view->assign('tests', ['sdfaaaaaaaaaaaaaaa']);
-        //?
-
-        // //! ******************************************************
-        // echo '<pre>';
-        // var_dump(BackendUtility::getPagesTSconfig(1)["mod."]["web_layout."]["BackendLayouts."]);
-        // echo '</pre>';
-
-        $test = "homepage1";
+        // $this->view->assign('rootLine', $rootlinePages);
 
         // ******************************************************
 
+        $test = "homepage1";
+        $homepageArray = array();
+        $gridArray = array();
         $layouts = BackendUtility::getPagesTSconfig(1)["mod."]["web_layout."]["BackendLayouts."];
 
-
         foreach($layouts as $key => $value) {
-            // echo ($value["config."]["backend_layout."]["rowCount."]);
             // echo explode(".", $key)[0]."<br>";
 
-            $testLayout = "";
+            $testLayout = "<div hidden>";
             $heightCounter = count($value["config."]["backend_layout."]["rows."]) -2;
 
             if (!str_contains($key, "homepage")) {
@@ -88,13 +72,10 @@ class PageController extends \TYPO3\CMS\Extbase\Mvc\Controller\ActionController
                 $mar = explode("-", $key);
                 $zahl = 1;
                 
-                
-
                 foreach ($layout["columns."] as $sub) {
                     $a = (count($layout["columns."]) !== 1) ? 'display: inline-block;' : '';
                     $b = (count($mar) == 1) ? 1 : ((int)$mar[$zahl++]) / 100;
                     $c = (str_contains($key, "homepage")) ? 1 / count($layout["columns."]) : $b;
-
 
                     if (end(explode(".", $sub['name'])) == "header") {
                         $testLayout .= "<div style='height: 20%;width:100%; border: 1px solid black'>header</div>";
@@ -111,15 +92,17 @@ class PageController extends \TYPO3\CMS\Extbase\Mvc\Controller\ActionController
             if (!str_contains($key, "homepage")) {
                 $testLayout .= "<div style='height: 20%; width:100%; border: 1px solid black'>footer</div>";
             }
-            $this->view->assign(explode(".", $key)[0], $testLayout);
+            $testLayout .= "<div>";
 
+            if (!str_contains($key, "homepage")) {
+                $gridArray += array($key => $testLayout);
+            }
+
+            // echo "<pre>".print_r($gridArray)."</pre>";
 
         }
-        echo "<pre>";
-        print_r($gridArray);
-        echo "</pre>";
 
-        print_r($homepageArray);
+        $this->view->assign("gridArray", $gridArray);
 
         // ******************************************************
 

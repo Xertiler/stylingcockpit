@@ -151,7 +151,8 @@ Otherwise your changes will be overwritten the next time you save the extension 
               let text = e.options[e.selectedIndex].text;
 
               let elem  = document.getElementById('homepage');
-              elem.append('<f:format.html>{'.concat(text, '}</f:format.html>'));              
+              elem.innerHTML = "";
+              elem.append('<f:format.html>{'+text+'}</f:format.html>'); 
             }
 
             function changeGrid() {
@@ -161,7 +162,7 @@ Otherwise your changes will be overwritten the next time you save the extension 
 
               let elem  = document.getElementById('grid');
               elem.innerHTML = "";
-              elem.innerHTML = "<f:format.html>{2Spalten-30-70}</f:format.html>";
+              elem.innerHTML = "<f:format.html>{2Spalten-50-50}</f:format.html>";
             }
           </script>
 
@@ -253,6 +254,12 @@ Otherwise your changes will be overwritten the next time you save the extension 
                         <div class="form-wizards-items-bottom">
                           <div class="t3js-forms-select-single-icons icon-list" >
                             <div class="row" id="grid" style="height: 500px;">
+                              <f:for each="{gridArray}" as="item">
+                                <pre>
+                                  <f:format.html>{item}</f:format.html>
+                                  
+                                </pre>
+                             </f:for>
                               <f:format.html>{1spaltig}</f:format.html>
 
                               <!-- <img loading="lazy" src="/studienprojekt/typo3conf/ext/typo3_template_baukasten/Resources/Public/Icons/BackendLayouts/main_1Spaltig.png" alt="Eine Spalte" title="Eine Spalte"> -->
@@ -274,3 +281,9 @@ Otherwise your changes will be overwritten the next time you save the extension 
 
 </f:section>
 </html>
+
+<style>
+  body {
+    background-color: aqua;
+  }
+</style>
