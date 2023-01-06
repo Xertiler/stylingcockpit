@@ -127,6 +127,8 @@ Otherwise your changes will be overwritten the next time you save the extension 
               }
             });
 
+
+
             function anotherTest(){
               $.ajax({
                 type: 'POST',
@@ -145,14 +147,27 @@ Otherwise your changes will be overwritten the next time you save the extension 
             }
 
 
+            let lastLayout;
+
+
+
             function changeHomepage() {
               let e = document.getElementById("homepageOption");
-              let value = e.value;
               let text = e.options[e.selectedIndex].text;
 
-              let elem  = document.getElementById('homepage');
-              elem.innerHTML = "";
-              elem.append('<f:format.html>{'+text+'}</f:format.html>'); 
+              console.log(text);
+              console.log(lastLayout);
+
+              if (lastLayout) {
+                console.log(lastLayout);
+                document.getElementById(lastLayout).addAttribute("hidden");
+              }
+
+              document.getElementById(text).removeAttribute("hidden"); 
+              lastLayout = text;
+              // document.getElementById(text).style.display = "block"; 
+
+              
             }
 
             function changeGrid() {
@@ -206,8 +221,13 @@ Otherwise your changes will be overwritten the next time you save the extension 
                         <div class="form-wizards-items-bottom">
                           <div class="t3js-forms-select-single-icons icon-list">
                             <div class="row" id="homepage" style="height: 500px;">
+
+                              <f:for each="{homepageArray}" as="item">
+                                  <f:format.html>{item}</f:format.html>     
+                             </f:for>
+
                               <!-- <img loading="lazy" src="/studienprojekt/typo3conf/ext/typo3_template_baukasten/Resources/Public/Icons/BackendLayouts/main_1Spaltig.png" alt="Eine Spalte" title="Eine Spalte"> -->
-                              <f:format.html>{homepage1}</f:format.html>
+                              <!-- <f:format.html>{homepage1}</f:format.html> -->
                               
                             </div>
                           </div>
@@ -253,17 +273,17 @@ Otherwise your changes will be overwritten the next time you save the extension 
                         </div>
                         <div class="form-wizards-items-bottom">
                           <div class="t3js-forms-select-single-icons icon-list" >
-                            <div class="row" id="grid" style="height: 500px;">
-                              <f:for each="{gridArray}" as="item">
-                                <pre>
-                                  <f:format.html>{item}</f:format.html>
-                                  
-                                </pre>
-                             </f:for>
-                              <f:format.html>{1spaltig}</f:format.html>
 
+                            <div class="row" id="grid" style="height: 500px;">
+
+                              <f:for each="{gridArray}" as="item">
+                                  <f:format.html>{item}</f:format.html>     
+                             </f:for>
+
+                              <!-- <f:format.html>{1spaltig}</f:format.html> -->
                               <!-- <img loading="lazy" src="/studienprojekt/typo3conf/ext/typo3_template_baukasten/Resources/Public/Icons/BackendLayouts/main_1Spaltig.png" alt="Eine Spalte" title="Eine Spalte"> -->
                             </div>
+
                           </div>
                         </div>
                       </div>

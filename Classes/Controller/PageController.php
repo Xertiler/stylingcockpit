@@ -59,12 +59,13 @@ class PageController extends \TYPO3\CMS\Extbase\Mvc\Controller\ActionController
 
         foreach($layouts as $key => $value) {
             // echo explode(".", $key)[0]."<br>";
+            $keyus = explode(".", $key)[0];
 
-            $testLayout = "<div hidden>";
+            $testLayout = "<div id='".$keyus."' hidden>";
             $heightCounter = count($value["config."]["backend_layout."]["rows."]) -2;
 
             if (!str_contains($key, "homepage")) {
-                $testLayout .= "<div style='height: 20%;width:100%; border: 1px solid black'>header</div>";
+                $testLayout .= "<div style='height: 20%; width:100%; border: 1px solid black'>header</div>";
                 $heightCounter += 2;
             }
 
@@ -78,9 +79,9 @@ class PageController extends \TYPO3\CMS\Extbase\Mvc\Controller\ActionController
                     $c = (str_contains($key, "homepage")) ? 1 / count($layout["columns."]) : $b;
 
                     if (end(explode(".", $sub['name'])) == "header") {
-                        $testLayout .= "<div style='height: 20%;width:100%; border: 1px solid black'>header</div>";
+                        $testLayout .= "<div style='height: 20%; width:100%; border: 1px solid black'>header</div>";
                     } else if (end(explode(".", $sub['name'])) == "footer") {
-                        $testLayout .= "<div style='height: 20%;width:100%; border: 1px solid black'>footer</div>";
+                        $testLayout .= "<div style='height: 20%; width:100%; border: 1px solid black'>footer</div>";
                     } else {
                         $testLayout .= "<div style='height:". 60 / $heightCounter."%;width:". 100 * $c ."%; border: 1px solid black;".$a."'>".end(explode(".", $sub['name']))."</div>";
                     }
@@ -92,15 +93,21 @@ class PageController extends \TYPO3\CMS\Extbase\Mvc\Controller\ActionController
             if (!str_contains($key, "homepage")) {
                 $testLayout .= "<div style='height: 20%; width:100%; border: 1px solid black'>footer</div>";
             }
-            $testLayout .= "<div>";
+            $testLayout .= "</div>";
 
             if (!str_contains($key, "homepage")) {
-                $gridArray += array($key => $testLayout);
+                array_push($gridArray, $testLayout);
+                // $gridArray += array($testLayout);
+            } else {
+                array_push($homepageArray, $testLayout);
+
+                // $homepageArray += array($testLayout);
             }
 
             // echo "<pre>".print_r($gridArray)."</pre>";
 
         }
+        $this->view->assign("homepageArray", $homepageArray);
 
         $this->view->assign("gridArray", $gridArray);
 
