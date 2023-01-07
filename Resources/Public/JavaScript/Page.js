@@ -1,4 +1,6 @@
 var colorPickerValue =  document.getElementById("color-picker").getAttribute('value');
+var lastHomepage = "";
+var lastGrid = "";
 
 document.getElementById("color-picker").addEventListener("change", function(event){
     colorPickerValue = event.target.value;
@@ -6,6 +8,34 @@ document.getElementById("color-picker").addEventListener("change", function(even
 
 function alertColor(){
     alert(colorPickerValue.toString());
+}
+
+function changeHomepage() {
+    var e = document.getElementById("homepageOption");
+    var currentHomepage = e.options[e.selectedIndex].text;
+
+    if (lastHomepage != "") {
+        let a = document.getElementById(lastHomepage);
+        a.style.visibility = "collapse";
+    } 
+
+    let p = document.getElementById(currentHomepage);
+    p.style.visibility = "visible";
+    lastHomepage = currentHomepage;
+}
+
+function changeGrid() {
+    var e = document.getElementById("gridOption");
+    var currentGrid = e.options[e.selectedIndex].text;
+
+    if (lastGrid != "") {
+        let a = document.getElementById(lastGrid);
+        a.style.visibility = "collapse";
+    } 
+
+    let p = document.getElementById(currentGrid);
+    p.style.visibility = "visible";
+    lastGrid = currentGrid;
 }
 
 

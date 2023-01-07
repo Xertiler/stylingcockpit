@@ -66,24 +66,31 @@
                                         <div class="form-wizards-wrap">
                                             <div class="form-wizards-element">
                                                 <div class="input-group">
-                                                                                                        <span class="input-group-addon input-group-icon">
-                                                                                                                <img loading="lazy" src="/studienprojekt/typo3conf/ext/typo3_template_baukasten/Resources/Public/Icons/BackendLayouts/homepage1.png" alt="Homepage1" title="Homepage1">
-                                                                                                        </span>
+                                                    <span class="input-group-addon input-group-icon">
+                                                            <img loading="lazy" src="/studienprojekt/typo3conf/ext/typo3_template_baukasten/Resources/Public/Icons/BackendLayouts/homepage1.png" alt="Homepage1" title="Homepage1">
+                                                    </span>
 
                                                     <!-- TODO typoescript for loop add options -->
-                                                    <select id="" name="" data-formengine-validation-rules="[{&quot;type&quot;:&quot;select&quot;,&quot;minItems&quot;:0,&quot;maxItems&quot;:1}]" class="form-select form-control-adapt">
-                                                        <option value="" data-icon="<img loading=&quot;lazy&quot;  src=&quot;/studienprojekt/typo3conf/ext/typo3_template_baukasten/Resources/Public/Icons/BackendLayouts/homepage1.png&quot; alt=&quot;Homepage1&quot; title=&quot;Homepage1&quot; />" selected="selected">Homepage1</option>
-                                                        <option value="pagets__homepage2" data-icon="<img loading=&quot;lazy&quot;  src=&quot;/studienprojekt/typo3conf/ext/typo3_template_baukasten/Resources/Public/Icons/BackendLayouts/homepage2.png&quot; alt=&quot;Homepage2&quot; title=&quot;Homepage2&quot; />">Homepage2</option>
+                                                    <select id="homepageOption" onchange="changeHomepage()" name="" data-formengine-validation-rules="[{&quot;type&quot;:&quot;select&quot;,&quot;minItems&quot;:0,&quot;maxItems&quot;:1}]" class="form-select form-control-adapt">
+                                                        <option value="pagets__homepage1" data-icon="<img loading=&quot;lazy&quot;  src=&quot;/studienprojekt/typo3conf/ext/typo3_template_baukasten/Resources/Public/Icons/BackendLayouts/homepage1.png&quot; alt=&quot;Homepage1&quot; title=&quot;Homepage1&quot; />" selected="selected">homepage1</option>
+                                                        <option value="pagets__homepage2" data-icon="<img loading=&quot;lazy&quot;  src=&quot;/studienprojekt/typo3conf/ext/typo3_template_baukasten/Resources/Public/Icons/BackendLayouts/homepage2.png&quot; alt=&quot;Homepage2&quot; title=&quot;Homepage2&quot; />">homepage2</option>
                                                     </select>
+
                                                 </div>
                                             </div>
+
+                                            <!-- Start Generate Homepage Layouts -->
                                             <div class="form-wizards-items-bottom">
                                                 <div class="t3js-forms-select-single-icons icon-list">
-                                                    <div class="row">
-                                                        <img loading="lazy" src="/studienprojekt/typo3conf/ext/typo3_template_baukasten/Resources/Public/Icons/BackendLayouts/main_1Spaltig.png" alt="Eine Spalte" title="Eine Spalte">
+                                                    <div class="row" id="homepage" style="height: 500px;">
+                                                        <f:for each="{homepageArray}" as="item">
+                                                            <f:format.html>{item}</f:format.html>     
+                                                        </f:for>                                                    
                                                     </div>
                                                 </div>
                                             </div>
+                                            <!-- End Generate Homepage Layouts -->
+
                                         </div>
                                     </div>
                                 </div>
@@ -95,24 +102,34 @@
                                         <div class="form-wizards-wrap">
                                             <div class="form-wizards-element">
                                                 <div class="input-group">
-                                                                                                        <span class="input-group-addon input-group-icon">
-                                                                                                                <img loading="lazy" src="/studienprojekt/typo3conf/ext/typo3_template_baukasten/Resources/Public/Icons/BackendLayouts/main_1Spaltig.png" alt="Eine Spalte" title="Eine Spalte">
-                                                                                                        </span>
+                                                    <span class="input-group-addon input-group-icon">
+                                                            <img loading="lazy" src="/studienprojekt/typo3conf/ext/typo3_template_baukasten/Resources/Public/Icons/BackendLayouts/main_1Spaltig.png" alt="Eine Spalte" title="Eine Spalte">
+                                                    </span>
 
                                                     <!-- TODO typoescript for loop add options -->
-                                                    <select id="tceforms-select-63790353c07c7687714246" name="data[pages][251][backend_layout_next_level]" data-formengine-validation-rules="[{&quot;type&quot;:&quot;select&quot;,&quot;minItems&quot;:0,&quot;maxItems&quot;:1}]" class="form-select form-control-adapt">
-                                                        <option value="pagets__1spaltig" data-icon="<img loading=&quot;lazy&quot;  src=&quot;/studienprojekt/typo3conf/ext/typo3_template_baukasten/Resources/Public/Icons/BackendLayouts/main_1Spaltig.png&quot; alt=&quot;Eine Spalte&quot; title=&quot;Eine Spalte&quot; />" selected="selected">Eine Spalte</option>
-                                                        <option value="pagets__2Spalten-30-70" data-icon="<img loading=&quot;lazy&quot;  src=&quot;/studienprojekt/typo3conf/ext/typo3_template_baukasten/Resources/Public/Icons/BackendLayouts/main_30-70.png&quot; alt=&quot;Zwei Spalten - 30/70&quot; title=&quot;Zwei Spalten - 30/70&quot; />">Zwei Spalten - 30/70</option><option value="pagets__2Spalten-50-50" data-icon="<img loading=&quot;lazy&quot;  src=&quot;/studienprojekt/typo3conf/ext/typo3_template_baukasten/Resources/Public/Icons/BackendLayouts/main_50-50.png&quot; alt=&quot;Zwei Spalten - 50/50&quot; title=&quot;Zwei Spalten - 50/50&quot; />">Zwei Spalten - 50/50</option><option value="pagets__2Spalten-70-30" data-icon="<img loading=&quot;lazy&quot;  src=&quot;/studienprojekt/typo3conf/ext/typo3_template_baukasten/Resources/Public/Icons/BackendLayouts/main_70-30.png&quot; alt=&quot;Zwei Spalten - 70/30&quot; title=&quot;Zwei Spalten - 70/30&quot; />">Zwei Spalten - 70/30</option>
+                                                    <select id="gridOption" onchange="changeGrid()" name="data[pages][251][backend_layout_next_level]" data-formengine-validation-rules="[{&quot;type&quot;:&quot;select&quot;,&quot;minItems&quot;:0,&quot;maxItems&quot;:1}]" class="form-select form-control-adapt">
+                                                        <option value="pagets__1spaltig" data-icon="<img loading=&quot;lazy&quot;  src=&quot;/studienprojekt/typo3conf/ext/typo3_template_baukasten/Resources/Public/Icons/BackendLayouts/main_1Spaltig.png&quot; alt=&quot;Eine Spalte&quot; title=&quot;Eine Spalte&quot; />" selected="selected">1spaltig</option>
+                                                        <option value="pagets__2Spalten-30-70" data-icon="<img loading=&quot;lazy&quot;  src=&quot;/studienprojekt/typo3conf/ext/typo3_template_baukasten/Resources/Public/Icons/BackendLayouts/main_30-70.png&quot; alt=&quot;Zwei Spalten - 30/70&quot; title=&quot;Zwei Spalten - 30/70&quot; />">2Spalten-30-70</option>
+                                                        <option value="pagets__2Spalten-50-50" data-icon="<img loading=&quot;lazy&quot;  src=&quot;/studienprojekt/typo3conf/ext/typo3_template_baukasten/Resources/Public/Icons/BackendLayouts/main_50-50.png&quot; alt=&quot;Zwei Spalten - 50/50&quot; title=&quot;Zwei Spalten - 50/50&quot; />">2Spalten-50-50</option>
+                                                        <option value="pagets__2Spalten-70-30" data-icon="<img loading=&quot;lazy&quot;  src=&quot;/studienprojekt/typo3conf/ext/typo3_template_baukasten/Resources/Public/Icons/BackendLayouts/main_70-30.png&quot; alt=&quot;Zwei Spalten - 70/30&quot; title=&quot;Zwei Spalten - 70/30&quot; />">2Spalten-70-30</option>
                                                     </select>
+
                                                 </div>
                                             </div>
+
+
+                                            <!-- Start Generate Grid Layouts -->
                                             <div class="form-wizards-items-bottom">
-                                                <div class="t3js-forms-select-single-icons icon-list">
-                                                    <div class="row">
-                                                        <img loading="lazy" src="/studienprojekt/typo3conf/ext/typo3_template_baukasten/Resources/Public/Icons/BackendLayouts/main_1Spaltig.png" alt="Eine Spalte" title="Eine Spalte">
+                                                <div class="t3js-forms-select-single-icons icon-list" >
+                                                    <div class="row" id="grid" style="height: 500px;">
+                                                        <f:for each="{gridArray}" as="item">
+                                                            <f:format.html>{item}</f:format.html>     
+                                                        </f:for>
                                                     </div>
                                                 </div>
                                             </div>
+                                            <!-- End Generate Grid Layouts -->
+
                                         </div>
                                     </div>
                                 </div>
