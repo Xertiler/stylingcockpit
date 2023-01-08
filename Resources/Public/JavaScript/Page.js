@@ -1,6 +1,15 @@
 var colorPickerValue =  document.getElementById("color-picker").getAttribute('value');
-var lastHomepage = "";
-var lastGrid = "";
+let firstHomepageChild = document.getElementById("homepage").firstElementChild;
+let firstGridChild = document.getElementById("grid").firstElementChild;
+
+
+firstHomepageChild.style.visibility = "visible";
+var lastHomepage = firstHomepageChild.id;
+
+firstGridChild.style.visibility = "visible";
+var lastGrid = firstGridChild.id;
+
+
 
 document.getElementById("color-picker").addEventListener("change", function(event){
     colorPickerValue = event.target.value;
@@ -9,6 +18,7 @@ document.getElementById("color-picker").addEventListener("change", function(even
 function alertColor(){
     alert(colorPickerValue.toString());
 }
+
 
 function changeHomepage() {
     var e = document.getElementById("homepageOption");
