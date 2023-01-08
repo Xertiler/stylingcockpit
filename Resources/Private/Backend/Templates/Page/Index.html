@@ -70,11 +70,13 @@
                                                             <img loading="lazy" src="/studienprojekt/typo3conf/ext/typo3_template_baukasten/Resources/Public/Icons/BackendLayouts/homepage1.png" alt="Homepage1" title="Homepage1">
                                                     </span>
 
-                                                    <!-- TODO typoescript for loop add options -->
+                                                    <!-- Start show all homepage layout options -->
                                                     <select id="homepageOption" onchange="changeHomepage()" name="" data-formengine-validation-rules="[{&quot;type&quot;:&quot;select&quot;,&quot;minItems&quot;:0,&quot;maxItems&quot;:1}]" class="form-select form-control-adapt">
-                                                        <option value="pagets__homepage1" data-icon="<img loading=&quot;lazy&quot;  src=&quot;/studienprojekt/typo3conf/ext/typo3_template_baukasten/Resources/Public/Icons/BackendLayouts/homepage1.png&quot; alt=&quot;Homepage1&quot; title=&quot;Homepage1&quot; />" selected="selected">homepage1</option>
-                                                        <option value="pagets__homepage2" data-icon="<img loading=&quot;lazy&quot;  src=&quot;/studienprojekt/typo3conf/ext/typo3_template_baukasten/Resources/Public/Icons/BackendLayouts/homepage2.png&quot; alt=&quot;Homepage2&quot; title=&quot;Homepage2&quot; />">homepage2</option>
+                                                        <f:for each="{homepageOptions}" as="homepageOption">
+                                                            <option value="pagets__homepage1" data-icon="<img loading=&quot;lazy&quot;  src=&quot;/studienprojekt/typo3conf/ext/typo3_template_baukasten/Resources/Public/Icons/BackendLayouts/homepage1.png&quot; alt=&quot;Homepage1&quot; title=&quot;Homepage1&quot; />">{homepageOption}</option>
+                                                        </f:for>
                                                     </select>
+                                                    <!-- End show all homepage layout options -->
 
                                                 </div>
                                             </div>
@@ -105,14 +107,14 @@
                                                     <span class="input-group-addon input-group-icon">
                                                             <img loading="lazy" src="/studienprojekt/typo3conf/ext/typo3_template_baukasten/Resources/Public/Icons/BackendLayouts/main_1Spaltig.png" alt="Eine Spalte" title="Eine Spalte">
                                                     </span>
-
-                                                    <!-- TODO typoescript for loop add options -->
+                                                    
+                                                    <!-- Start show all grid layout options -->
                                                     <select id="gridOption" onchange="changeGrid()" name="data[pages][251][backend_layout_next_level]" data-formengine-validation-rules="[{&quot;type&quot;:&quot;select&quot;,&quot;minItems&quot;:0,&quot;maxItems&quot;:1}]" class="form-select form-control-adapt">
-                                                        <option value="pagets__1spaltig" data-icon="<img loading=&quot;lazy&quot;  src=&quot;/studienprojekt/typo3conf/ext/typo3_template_baukasten/Resources/Public/Icons/BackendLayouts/main_1Spaltig.png&quot; alt=&quot;Eine Spalte&quot; title=&quot;Eine Spalte&quot; />" selected="selected">1spaltig</option>
-                                                        <option value="pagets__2Spalten-30-70" data-icon="<img loading=&quot;lazy&quot;  src=&quot;/studienprojekt/typo3conf/ext/typo3_template_baukasten/Resources/Public/Icons/BackendLayouts/main_30-70.png&quot; alt=&quot;Zwei Spalten - 30/70&quot; title=&quot;Zwei Spalten - 30/70&quot; />">2Spalten-30-70</option>
-                                                        <option value="pagets__2Spalten-50-50" data-icon="<img loading=&quot;lazy&quot;  src=&quot;/studienprojekt/typo3conf/ext/typo3_template_baukasten/Resources/Public/Icons/BackendLayouts/main_50-50.png&quot; alt=&quot;Zwei Spalten - 50/50&quot; title=&quot;Zwei Spalten - 50/50&quot; />">2Spalten-50-50</option>
-                                                        <option value="pagets__2Spalten-70-30" data-icon="<img loading=&quot;lazy&quot;  src=&quot;/studienprojekt/typo3conf/ext/typo3_template_baukasten/Resources/Public/Icons/BackendLayouts/main_70-30.png&quot; alt=&quot;Zwei Spalten - 70/30&quot; title=&quot;Zwei Spalten - 70/30&quot; />">2Spalten-70-30</option>
+                                                        <f:for each="{gridOptions}" as="gridOption">
+                                                            <option data-icon="<img loading=&quot;lazy&quot;  src=&quot;/studienprojekt/typo3conf/ext/typo3_template_baukasten/Resources/Public/Icons/BackendLayouts/main_1Spaltig.png&quot; alt=&quot;Eine Spalte&quot; title=&quot;Eine Spalte&quot; />">{gridOption}</option>
+                                                        </f:for>
                                                     </select>
+                                                    <!-- End show all grid layout options -->
 
                                                 </div>
                                             </div>

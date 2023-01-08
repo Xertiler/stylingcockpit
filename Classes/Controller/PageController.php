@@ -55,19 +55,27 @@ class PageController extends \TYPO3\CMS\Extbase\Mvc\Controller\ActionController
         $test = "homepage1";
         $homepageArray = array();
         $gridArray = array();
+
+        $homepageOptions = array();
+        $gridOptions = array();
+
+
+
         $layouts = BackendUtility::getPagesTSconfig(1)["mod."]["web_layout."]["BackendLayouts."];
 
         foreach($layouts as $key => $value) {
             // echo explode(".", $key)[0]."<br>";
             $keyus = explode(".", $key)[0];
 
-            $testLayout = "<div id='".$keyus."' style='visibility: collapse; ;
-            padding: 0;'>";
+            $testLayout = "<div id='".$keyus."' style='visibility: collapse; padding: 0;'>";
             $heightCounter = count($value["config."]["backend_layout."]["rows."]) -2;
 
             if (!str_contains($key, "homepage")) {
                 $testLayout .= "<div style='height: 20%; width:100%; border: 1px solid black'>header</div>";
                 $heightCounter += 2;
+                array_push($gridOptions, $keyus);
+            } else {
+                array_push($homepageOptions, $keyus);
             }
 
             foreach ($value["config."]["backend_layout."]["rows."] as $layout) {
@@ -109,8 +117,11 @@ class PageController extends \TYPO3\CMS\Extbase\Mvc\Controller\ActionController
 
         }
         $this->view->assign("homepageArray", $homepageArray);
-
         $this->view->assign("gridArray", $gridArray);
+        $this->view->assign("homepageOptions", $homepageOptions);
+        $this->view->assign("gridOptions", $gridOptions);
+
+        
 
         // ******************************************************
 
